@@ -175,7 +175,7 @@ void generateImplementationFromImage(FILE * file, const char * header, const cha
   int maxSizeOfCompressedPixelBuffer = LZ4_compressBound(sizeOfPixelBuffer);
   uint8_t * compressedPixelBuffer = malloc(maxSizeOfCompressedPixelBuffer);
   int sizeOfCompressedPixelBuffer = LZ4_compress_HC(
-    pixelBuffer,
+    (char*)pixelBuffer,
     compressedPixelBuffer,
     sizeOfPixelBuffer,
     maxSizeOfCompressedPixelBuffer,
