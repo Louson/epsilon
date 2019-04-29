@@ -61,10 +61,10 @@ void StorageFunction::setActive(bool active) {
   recordData()->setActive(active);
 }
 
-int StorageFunction::nameWithArgument(char * buffer, size_t bufferSize, char arg) {
+size_t StorageFunction::nameWithArgument(char * buffer, size_t bufferSize, char arg) {
   const char * functionName = fullName();
   size_t baseNameLength = SymbolAbstract::TruncateExtension(buffer, functionName, bufferSize - k_parenthesedArgumentLength);
-  int result = baseNameLength + strlcpy(&buffer[baseNameLength], k_parenthesedArgument, bufferSize-baseNameLength);
+  size_t result = baseNameLength + strlcpy(&buffer[baseNameLength], k_parenthesedArgument, bufferSize-baseNameLength);
   if (baseNameLength+1 < bufferSize - 1) {
     buffer[baseNameLength+1] = arg;
   }

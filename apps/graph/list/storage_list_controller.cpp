@@ -50,7 +50,7 @@ bool StorageListController::textFieldDidFinishEditing(TextField * textField, con
   // Compute the new name
   size_t textLength = strlen(text);
   size_t argumentLength = StorageFunction::k_parenthesedArgumentLength;
-  constexpr int maxBaseNameSize = StorageFunction::k_maxNameWithArgumentSize;
+  constexpr size_t maxBaseNameSize = StorageFunction::k_maxNameWithArgumentSize;
   char baseName[maxBaseNameSize];
   if (textLength <= argumentLength) {
     // The user entered an empty name. Use a default function name.

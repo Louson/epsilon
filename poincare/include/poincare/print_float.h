@@ -2,6 +2,7 @@
 #define POINCARE_PRINT_FLOAT_H
 
 #include <assert.h>
+#include <stddef.h>
 #include <poincare/preferences.h>
 
 namespace Poincare {
@@ -47,7 +48,7 @@ namespace PrintFloat {
   template <class T>
   int convertFloatToText(T d, char * buffer, int bufferSize, int numberOfSignificantDigits, Preferences::PrintFloatMode mode, bool allowRounding = true);
   template <class T>
-  static int convertFloatToTextPrivate(T f, char * buffer, int numberOfSignificantDigits, Preferences::PrintFloatMode mode, int * numberOfRemovedZeros);
+  static size_t convertFloatToTextPrivate(T f, char * buffer, size_t numberOfSignificantDigits, Preferences::PrintFloatMode mode, size_t * numberOfRemovedZeros);
 }
 
 }
