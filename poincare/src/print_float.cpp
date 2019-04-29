@@ -40,15 +40,15 @@ void PrintFloat::printBase10IntegerWithDecimalMarker(char * buffer, int bufferLe
 }
 
 template <class T>
-int PrintFloat::convertFloatToText(T f, char * buffer, int bufferSize,
-    int numberOfSignificantDigits, Preferences::PrintFloatMode mode, bool allowRounding)
+size_t PrintFloat::convertFloatToText(T f, char * buffer, size_t bufferSize,
+    size_t numberOfSignificantDigits, Preferences::PrintFloatMode mode, bool allowRounding)
 {
   assert(numberOfSignificantDigits > 0);
   assert(bufferSize > 0);
 
   char tempBuffer[PrintFloat::k_maxFloatBufferLength];
-  int numberOfZerosRemoved = 0;
-  int requiredLength = convertFloatToTextPrivate(f, tempBuffer, numberOfSignificantDigits, mode, &numberOfZerosRemoved);
+  size_t numberOfZerosRemoved = 0;
+  size_t requiredLength = convertFloatToTextPrivate(f, tempBuffer, numberOfSignificantDigits, mode, &numberOfZerosRemoved);
   /* If the required buffer size overflows the buffer size, we first force the
    * display mode to scientific and decrease the number of significant digits to
    * fit the buffer size. */

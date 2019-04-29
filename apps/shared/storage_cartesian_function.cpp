@@ -63,9 +63,9 @@ StorageCartesianFunction StorageCartesianFunction::NewModel(Ion::Storage::Record
   return StorageCartesianFunction(Ion::Storage::sharedStorage()->recordBaseNamedWithExtension(baseName, GlobalContext::funcExtension));
 }
 
-int StorageCartesianFunction::derivativeNameWithArgument(char * buffer, size_t bufferSize, char arg) {
+size_t StorageCartesianFunction::derivativeNameWithArgument(char * buffer, size_t bufferSize, char arg) {
   // Fill buffer with f(x). Keep one char for derivative sign.
-  int numberOfChars = nameWithArgument(buffer, bufferSize-1, arg);
+  size_t numberOfChars = nameWithArgument(buffer, bufferSize-1, arg);
   assert(numberOfChars + 1 < bufferSize);
   char * lastChar = buffer+numberOfChars;
   do {

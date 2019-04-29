@@ -41,7 +41,7 @@ public:
   void didBecomeFirstResponder() override;
 private:
   constexpr static KDCoordinate k_textFieldRightMargin = 4;
-  constexpr static int k_textFieldBufferSize = Shared::StorageFunction::k_maxNameWithArgumentSize;
+  constexpr static size_t k_textFieldBufferSize = Shared::StorageFunction::k_maxNameWithArgumentSize;
   float verticalAlignmentGivenExpressionBaselineAndRowHeight(KDCoordinate expressionBaseline, KDCoordinate rowHeight) const override;
   Shared::TextFieldWithExtension m_textField;
   char m_textFieldBuffer[k_textFieldBufferSize];

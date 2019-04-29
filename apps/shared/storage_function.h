@@ -28,7 +28,7 @@ public:
   void setActive(bool active);
 
   // Name
-  int nameWithArgument(char * buffer, size_t bufferSize, char arg);
+  size_t nameWithArgument(char * buffer, size_t bufferSize, char arg);
 
   // Evaluation
   virtual float evaluateAtAbscissa(float x, Poincare::Context * context) const {
